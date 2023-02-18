@@ -1,26 +1,26 @@
 import { useState } from "react";
 import axios from "axios";
-export const  config = {
-  unstable_runtimeJS:false
-}
+export const config = {
+  unstable_runtimeJS: false,
+};
 export default function Landing() {
   const [name, setname] = useState();
   const [phone, setphone] = useState();
   function submit(e) {
     e.preventDefault();
     if (name && phone) {
-      // axios
-      // .post(
-      //   "https://hooks.slack.com/services/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",
-      //   {
-      //     text: `Name->${name}\nPhone Number->${phone}`,
-      //   }
-      // )
-      // .then((res) => {
-      //   console.log(res);
-      // });
-      alert("Data enter sucessfully");
-      location.reload()
+      axios
+        .post(
+          "https://hooks.slack.com/services/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",
+          {
+            text: `Name->${name}\nPhone Number->${phone}`,
+          }
+        )
+        .then((res) => {
+          console.log(res);
+        });
+      // alert("Data enter sucessfully");
+      // location.reload()
     } else {
       alert("enter all value");
     }
@@ -67,8 +67,8 @@ export default function Landing() {
             mobile Applications for your buisness
           </div>
         </div>
-        <div className="bg-[#f2f2f7] px-8 py-4">
-          <form>
+        <div className="px-8 py-4">
+          {/* <form>
             <div className="text-center text-[#0a0f67] text-2xl mb-12 font-bold">
               Start project
             </div>
@@ -108,7 +108,20 @@ export default function Landing() {
             >
               Submit
             </button>
-          </form>
+          </form> */}
+          <button className="bg-[#0a0f67] px-4 py-2 rounded-lg hover:bg-white ">
+            <a
+              className="flex items-center text-2xl font-bold text-white hover:text-[#0a0f67]"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://api.whatsapp.com/send?phone=9153662397"
+            >
+              Start chat
+              <span>
+                <img src="/icons8-whatsapp.svg"></img>
+              </span>
+            </a>
+          </button>
         </div>
       </div>
 
