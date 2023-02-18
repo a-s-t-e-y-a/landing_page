@@ -148,7 +148,10 @@ export default function Landing() {
             <h2 className="mb-6 text-3xl font-bold">About</h2>
             <div>
               helloappwallah@gmail.com<br></br>
-              +91 91536 62397<br></br>
+             <a  
+             target="_blank"
+              rel="noopener noreferrer"
+              href="https://api.whatsapp.com/send?phone=9153662397">+91 91536 62397</a> <br></br>
               101, R.R. Tower, Ratu Road, Ranchi<br></br>
               Jharkhand, 834001
             </div>
