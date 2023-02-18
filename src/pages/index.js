@@ -1,20 +1,29 @@
 import { useState } from "react";
 import axios from "axios";
+export const  config = {
+  unstable_runtimeJS:false
+}
 export default function Landing() {
   const [name, setname] = useState();
   const [phone, setphone] = useState();
   function submit(e) {
     e.preventDefault();
-    axios
-      .post(
-        "https://hooks.slack.com/services/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",
-        {
-          text: `Name->${name}\nPhone Number->${phone}`,
-        }
-      )
-      .then((res) => {
-        console.log(res);
-      });
+    if (name && phone) {
+      // axios
+      // .post(
+      //   "https://hooks.slack.com/services/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",
+      //   {
+      //     text: `Name->${name}\nPhone Number->${phone}`,
+      //   }
+      // )
+      // .then((res) => {
+      //   console.log(res);
+      // });
+      alert("Data enter sucessfully");
+      location.reload()
+    } else {
+      alert("enter all value");
+    }
   }
   return (
     <div>
@@ -72,6 +81,7 @@ export default function Landing() {
                   setname(e.target.value);
                 }}
                 name="name"
+                defaultValue={name}
                 placeholder="Enter name"
                 type="text"
                 className="text-xl h-12 mb-12 px-4 border-white bg-[#c2c5f9] rounded-xl text-black"
@@ -86,6 +96,7 @@ export default function Landing() {
                   setphone(e.target.value);
                 }}
                 name="phoneno"
+                defaultValue={phone}
                 placeholder="Enter phone no"
                 type="text"
                 className=" mb-12 text-xl h-12 px-4 border-white bg-[#c2c5f9] rounded-xl text-black"
